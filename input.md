@@ -21,6 +21,8 @@ npx convex dev
 
 This will prompt the user to set up the `convex` app w/ the backend & authenticate. It will also create the `convex/` directory.
 
+`npx convex dev` runs a server that will autogenerate `convex` definitions for use. So you don't have to run `npx convex codegen`. It also generates a `.env.local` which has the `CONVEX_URL` plugged in, ready to be used for `vite`.
+
 # How to plug in Convex into the App
 
 You have to wrap your app with the `ConvexProvider`. Something like this:
@@ -28,7 +30,8 @@ You have to wrap your app with the `ConvexProvider`. Something like this:
 ```jsx
 import { ConvexProvider, ConvexReactClient } from "convex/react";
 
-const convex = new ConvexReactClient(process.env.REACT_APP_CONVEX_URL);
+// Note: this assumes you're using `vite`
+const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL);
 root.render(
   <React.StrictMode>
     <ConvexProvider client={convex}>
