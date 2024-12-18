@@ -4,14 +4,22 @@ Specifically, I want you to generate a React App that works with `convex` in a f
 
 # How to set up convex in a react app
 
-You already probably know how to set up a basic `react` app that doesn't have `convex`. Assuming we have one, adding `convex` to an app is as simple as this:
+You already probably know how to set up a basic `react` app that doesn't have `convex`. In the case where the user doesn't have a `react` app, advise them to create it with `vite` as `create-react-app` is kind of deprecated:
+
+```sh
+npm create vite@latest PROJ_NAME --template react
+```
+
+In the case where it's created like this, the entry point is `src/main.jsx` (assuming JavaScript)
+
+Assuming we have a `react` project, adding `convex` to an app is as simple as this:
 
 ```sh
 npm install convex
 npx convex dev
 ```
 
-This will prompt the user to set up the `convex` app w/ the backend & authenticate. It will also create the `src/convex` directory.
+This will prompt the user to set up the `convex` app w/ the backend & authenticate. It will also create the `convex/` directory.
 
 # How to plug in Convex into the App
 
@@ -32,7 +40,7 @@ root.render(
 
 # How to query / mutate with Convex
 
-Remember, Convex is a backend + DB. So we want to be able to store & fetch data. The following example is inside `src/convex`, which holds server-side `convex` handler code for reading & writing documents.
+Remember, Convex is a backend + DB. So we want to be able to store & fetch data. The following example is inside `convex/` (not `src/convex`), which holds server-side `convex` handler code for reading & writing documents.
 
 ```jsx
 // convex/tasks.ts
