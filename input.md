@@ -66,11 +66,30 @@ export const send = mutation({
 });
 ```
 
+Convex only supports certain `js/ts` types. Specifically:
+
+```
+convex-type js/ts-type
+Id	string
+Null	null
+Int64	bigint
+Float64	number
+Boolean	boolean
+String	string
+Bytes	ArrayBuffer
+Array	Array
+Object	Object
+Record	Record(TS only)
+```
+
+So you can't send a `Date` to `convex` for example. You'll have to first convert it to a `string` or `Object` of some kind.
+
 # How to wire that data into a React component
 
 ```jsx
 // YourComponent.tsx (or .jsx)
 import { useQuery, useMutation } from "convex/react";
+// Note: this path is relative. The `convex` directory is at the root of the project, so above `src`. In the case where you're writing code that's in `src/components/*`, you'd want to import `../../convex/_generated/...`
 import { api } from "../convex/_generated/api";
 
 function YourComponent() {

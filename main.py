@@ -21,10 +21,8 @@ with open("chatgpt-preprompt.md", "r") as file:
 with open("system.txt", "r") as system_file:
     system_prompt = system_file.read()
 
-# Ask the user for an input
-# TODO(sjayakar) remove this override
-# user_input = input("Please enter your input: ")
-user_input = "Please write me a Convex app that lets me add and store notes "
+with open("prompt.md", "r") as prompt_file:
+    user_input = prompt_file.read()
 
 # Concatenate the contents
 combined_content = input_md_content + "\n" + preprompt_content + "\n" + user_input

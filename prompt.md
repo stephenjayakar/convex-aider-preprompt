@@ -1,0 +1,1 @@
+Please generate me a basic shopping site with some listings. I want them to have prices, and quantities. I want to be able to add to cart, but not more than the quantity. Each new browser tab will be its own user. Once "purchased", it just permanently decrements the quantity counter
